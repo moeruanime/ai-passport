@@ -52,40 +52,41 @@ static void create_weather_ui(void) {
     // 1. 頂部標題
     lv_obj_t *lbl_title = lv_label_create(scr);
     lv_label_set_text(lbl_title, "AI PASSPORT");
+    lv_obj_set_style_text_font(lbl_title, &lv_font_montserrat_14, 0);
     lv_obj_set_style_text_color(lbl_title, lv_color_hex(0x8E99A4), 0);
     lv_obj_align(lbl_title, LV_ALIGN_TOP_MID, 0, 15);
 
-    // 2. 城市名稱
+    // 2. 城市名稱 (使用 20 號字型)
     lbl_city = lv_label_create(scr);
-    lv_obj_set_style_text_font(lbl_city, &lv_font_montserrat_24, 0);
+    lv_obj_set_style_text_font(lbl_city, &lv_font_montserrat_20, 0);
     lv_obj_set_style_text_color(lbl_city, lv_color_hex(0x00D2FF), 0);
     lv_obj_align(lbl_city, LV_ALIGN_TOP_MID, 0, 50);
 
-    // 3. 溫度大字
+    // 3. 溫度大字 (使用 20 號字型)
     lbl_temp = lv_label_create(scr);
-    lv_obj_set_style_text_font(lbl_temp, &lv_font_montserrat_36, 0);
+    lv_obj_set_style_text_font(lbl_temp, &lv_font_montserrat_20, 0);
     lv_obj_set_style_text_color(lbl_temp, lv_color_hex(0xFFFFFF), 0);
     lv_obj_align(lbl_temp, LV_ALIGN_CENTER, 0, -20);
 
-    // 4. 天氣描述
+    // 4. 天氣描述 (使用 14 號字型)
     lbl_desc = lv_label_create(scr);
-    lv_obj_set_style_text_font(lbl_desc, &lv_font_montserrat_20, 0);
+    lv_obj_set_style_text_font(lbl_desc, &lv_font_montserrat_14, 0);
     lv_obj_set_style_text_color(lbl_desc, lv_color_hex(0xA8FF78), 0);
-    lv_obj_align(lbl_desc, LV_ALIGN_CENTER, 0, 30);
+    lv_obj_align(lbl_desc, LV_ALIGN_CENTER, 0, 20);
 
-    // 5. 濕度
+    // 5. 濕度 (使用 14 號字型)
     lbl_humidity = lv_label_create(scr);
-    lv_obj_set_style_text_font(lbl_humidity, &lv_font_montserrat_16, 0);
+    lv_obj_set_style_text_font(lbl_humidity, &lv_font_montserrat_14, 0);
     lv_obj_set_style_text_color(lbl_humidity, lv_color_hex(0xCCCCCC), 0);
-    lv_obj_align(lbl_humidity, LV_ALIGN_CENTER, 0, 65);
+    lv_obj_align(lbl_humidity, LV_ALIGN_CENTER, 0, 50);
 
-    // 6. 底部提示
+    // 6. 底部提示 (使用 14 號字型)
     lbl_status = lv_label_create(scr);
     lv_obj_set_style_text_font(lbl_status, &lv_font_montserrat_14, 0);
     lv_obj_set_style_text_color(lbl_status, lv_color_hex(0xFFA500), 0);
     lv_obj_align(lbl_status, LV_ALIGN_BOTTOM_MID, 0, -25);
 
-    bsp_lvgl_unlock();
+    bsp_display_unlock();
 }
 
 // 按鍵監聽任務 (直接讀取 Passport 電阻分壓電壓)
